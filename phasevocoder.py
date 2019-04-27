@@ -7,15 +7,9 @@ import numpy as np
 from numpy import sin, pi, arange, array
 import struct
 import warnings
-## Py 3
-#import sys
-#try:
-#    from StringIO import StringIO
-#except ImportError:
-#    from io import StringIO
-#import base64
 
-np.seterr(divide='ignore', invalid='ignore')
+
+# np.seterr(divide='ignore', invalid='ignore')
 
 # Time stretching #
 
@@ -66,7 +60,7 @@ def pitchshift(snd_array, n, window_size=2**11, h=2**7):
 def wavWrite(filename, data, rate=44100):
     """ Writes data to a .WAV file """
     wavfile.write(filename, rate, (2**15*data).astype(np.int16))
-
+"""
 def main():
     print("vocoder started")
     fps, soundwav = wavfile.read("hello.wav")
@@ -76,3 +70,5 @@ def main():
     wavWrite("hello4.wav", tmp, fps)
 
 if __name__ == "__main__": main()
+
+"""
