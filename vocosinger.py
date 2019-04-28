@@ -28,6 +28,8 @@ for i, word in enumerate(textIn):
     os.remove(word+".mp3")
     fps, soundwav = wavfile.read(word+".wav")
     out = pitchshift(soundwav, pitches[i])
+    outlen = len(out) - 6000
+    out = np.delete(out, np.s_[outlen:])
     outfull = np.append(outfull, out)
     os.remove(word+".wav")
 
