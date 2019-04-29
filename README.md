@@ -4,7 +4,7 @@ Tested on Ubuntu Linux 18.04
 
 ## Python dependcies
 
-`pip install pydub scipy gtts pydub`
+`pip install pydub scipy gtts `
 
 ## Other dependecies
 
