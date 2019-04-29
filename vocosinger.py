@@ -16,7 +16,7 @@ textIn = args.textin
 textIn = textIn.split()
 pitches = args.integers
 
-pad = np.zeros(100)
+pad = np.zeros(10)
 
 outfull = np.empty((0, 100))
 
@@ -28,8 +28,9 @@ for i, word in enumerate(textIn):
     os.remove(word+".mp3")
     fps, soundwav = wavfile.read(word+".wav")
     out = pitchshift(soundwav, pitches[i])
-    outlen = len(out) - 6000
+    outlen = len(out) - 4000
     out = np.delete(out, np.s_[outlen:])
+    out = np.delete(out, np.s_[0:1000])
     outfull = np.append(outfull, out)
     os.remove(word+".wav")
 

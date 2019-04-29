@@ -8,8 +8,8 @@ from numpy import sin, pi, arange, array
 import struct
 import warnings
 
+np.seterr(divide='ignore', invalid='ignore')
 
-# np.seterr(divide='ignore', invalid='ignore')
 
 # Time stretching #
 
@@ -60,7 +60,9 @@ def pitchshift(snd_array, n, window_size=2**11, h=2**7):
 def wavWrite(filename, data, rate=44100):
     """ Writes data to a .WAV file """
     wavfile.write(filename, rate, (2**15*data).astype(np.int16))
+
 """
+# testing vocoder
 def main():
     print("vocoder started")
     fps, soundwav = wavfile.read("hello.wav")
