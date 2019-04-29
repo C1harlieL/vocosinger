@@ -6,6 +6,7 @@ import argparse
 from phasevocoder import speedx, stretch, pitchshift, wavWrite
 from scipy.io import wavfile
 import numpy as np
+import subprocess
 
 parser = argparse.ArgumentParser(description='Test to speech')
 parser.add_argument('-t', '--textin', action='store', dest='textin', default='hey beesh', help='put your text after this')
@@ -37,3 +38,7 @@ for i, word in enumerate(textIn):
 tmp = np.interp(outfull, (out.min(), out.max()), (-1, +1))
 wavWrite("full.wav", tmp, fps)
 
+def play():
+    subprocess.call(["ffplay", "-nodisp", "-autoexit", "full.wav"])
+
+play()
